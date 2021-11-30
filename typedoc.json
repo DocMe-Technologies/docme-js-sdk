@@ -1,0 +1,9 @@
+{
+  "entryPoints": [
+    "./src/index.ts",
+    "./src/classes/DocMeV1.ts",
+    "./src/classes/DocMeMeasurementV1.ts",
+    "./src/@types/DocMeV1.d.ts"
+  ],
+  "out": "doc"
+}
