@@ -125,7 +125,5 @@ describe('DocMeMeasurementV1', () => {
 
       expect(fetchMock).toBeCalledTimes(4);
     });
-
-    it('should properly set details', async () => {});
   });
 });
