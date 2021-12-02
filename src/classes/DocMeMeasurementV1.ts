@@ -95,7 +95,7 @@ export class DocMeMeasurementV1 {
         apiUri,
         this.token
       );
-      if (response.status == 'PROCESSING') {
+      if (response.status === 'PROCESSING') {
         return response;
       } else {
         throw new Error('Internal Server Error');
