@@ -50,20 +50,37 @@ docMeInstance
 Measure from webcam
 
 ```js
-import getDocMe from 'docme-sdk';
+import getDocMe, { createBlobFromStream } from 'docme-sdk';
 
 // get version 1
 const DocMe = getDocMe(1);
 
 const docMeInstance = new DocMe('<your-api-token-here>');
 
-// get webcam
+// option 1
 navigator.mediaDevices
   .getUserMedia({ video: true, audio: true })
   .then(stream => {
-    // this will record the stream and then return the completed measurement
-    return docMeInstance.measureFromMediaStream(stream, true);
+    // record for 45 seconds (or 45000 ms) and return a promise containing a blob
+    return createBlobFromStream(stream, 45000);
   })
+  .then(blob => {
+    return docMeInstance.measureFromVideo(video, true);
+  })
+  .then(measurement => console.log(measurement.details))
+  .catch(e => console.error(e));
+
+// option 2
+navigator.mediaDevices
+  .getUserMedia({ video: true, audio: true })
+  .then(stream => {
+    // record for 45 seconds (or 45000 ms) and return a promise containing a blob
+    return createBlobFromStream(stream, 45000);
+  })
+  .then(blob => {
+    return docMeInstance.measureFromVideo(video);
+  })
+  .then(measurement => measurement.getDetails())
   .then(measurement => console.log(measurement.details))
   .catch(e => console.error(e));
 ```
