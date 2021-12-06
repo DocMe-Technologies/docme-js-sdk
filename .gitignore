@@ -5,3 +5,5 @@ coverage
 dist
 doc
 *.webm
+*.sh
+.envrc
