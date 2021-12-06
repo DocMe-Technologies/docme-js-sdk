@@ -14,8 +14,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: lts/*
-          cache: "yarn"
-          cache-dependency-path: "integration/**/yarn.lock"
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Lint
