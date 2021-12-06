@@ -34,7 +34,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "docme-sdk",
+  "name": "docme-js-sdk",
   "author": "Muamet Islami",
   "module": "dist/docme-sdk.esm.js",
   "size-limit": [

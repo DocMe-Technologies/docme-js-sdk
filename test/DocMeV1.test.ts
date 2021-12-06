@@ -1,10 +1,8 @@
 import './mocks/mediaStream.mock';
-import { DocMeLiveMeasurement } from '../src/classes/DocMeLiveMeasurement';
 import { DocMeMeasurementV1 } from '../src/classes/DocMeMeasurementV1';
 import { DocMeV1 } from '../src/classes/DocMeV1';
 
 jest.mock('../src/classes/DocMeMeasurementV1');
-jest.mock('../src/classes/DocMeLiveMeasurement');
 
 describe('DocMeV1', () => {
   beforeEach(() => {
@@ -20,13 +18,6 @@ describe('DocMeV1', () => {
 
     expect(DocMeMeasurementV1.fromVideo).toBeCalledWith('token', blob);
     expect(DocMeMeasurementV1.fromVideo).toBeCalledTimes(1);
-  });
-
-  it('should return DocMeLiveMeasurement when measureFromMediaStream is called', async () => {
-    const instance = new DocMeV1('token');
-    expect(instance.measureFromMediaStream(new MediaStream())).toBeInstanceOf(
-      DocMeLiveMeasurement
-    );
   });
 
   it('should call DocMeMeasurementV1.getDetails when measureFromVideo is called with true as a second argument', async () => {

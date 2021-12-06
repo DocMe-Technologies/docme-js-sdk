@@ -1,4 +1,3 @@
-import { DocMeLiveMeasurement } from './DocMeLiveMeasurement';
 import { DocMeMeasurementV1 } from './DocMeMeasurementV1';
 
 export class DocMeV1 {
@@ -31,17 +30,6 @@ export class DocMeV1 {
     }
     await measurement.getDetails();
     return measurement;
-  };
-
-  public measureFromMediaStream = (
-    mediaStream: MediaStream,
-    videoBitsPerSecond?: number
-  ) => {
-    return new DocMeLiveMeasurement(
-      this.token,
-      mediaStream,
-      videoBitsPerSecond
-    );
   };
 
   /**
