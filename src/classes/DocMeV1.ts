@@ -33,6 +33,12 @@ export class DocMeV1 {
     return measurement;
   };
 
+  /**
+   * Creates a live measurement instance from a MediaStream
+   * @param mediaStream - MediaStream instance
+   * @param {number} videoBitsPerSecond - The chosen bitrate for the video
+   * @returns {Object} - DocMeLiveMeasurement instance
+   */
   public measureFromMediaStream = (
     mediaStream: MediaStream,
     videoBitsPerSecond?: number
